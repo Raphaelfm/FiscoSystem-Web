@@ -2,6 +2,7 @@
 using FiscoSystem.Models.CfopModels;
 using FiscoSystem.Models.NcmModels;
 using FiscoSystem.Models.PessoaModels;
+using FiscoSystem.Models.TelefoneModels;
 
 namespace FiscoSystem.Context
 {
@@ -15,6 +16,7 @@ namespace FiscoSystem.Context
         public DbSet<NcmModel> NcmNodel { get; set; }
         public DbSet<CfopModel> CfopModel { get; set; }
         public DbSet<PessoaModel> PessoaModel { get; set; }
+        public DbSet<TelefoneModel> TelefoneModel { get; set; }
     }
 }
 
