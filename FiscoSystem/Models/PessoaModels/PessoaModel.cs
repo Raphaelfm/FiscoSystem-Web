@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using FiscoSystem.Models.TelefoneModels;
 
 namespace FiscoSystem.Models.PessoaModels
 {
-    [Table("TabelaPessoa")]
+    [Table("TabelaPessoas")]
     public class PessoaModel
     {
         [Key]
@@ -24,5 +25,6 @@ namespace FiscoSystem.Models.PessoaModels
         [StringLength(8)]
         public int Numero { get; set; }
 
+        public List<TelefoneModel> Telefones { get; set; }
     }
 }
