@@ -13,6 +13,6 @@ namespace FiscoSystem.Repositories
             _context = context;
         }
 
-        public IEnumerable<NcmModel> Ncms => _context.NcmNodel;
+        public IEnumerable<NcmModel> Ncms => _context.NcmModel;
     }
 }

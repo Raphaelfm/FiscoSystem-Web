@@ -1,10 +1,23 @@
-﻿@model IEnumerable<FiscoSystem.Models.NcmModels.NcmModel>
+﻿@model ReflectionIT.Mvc.Paging.PagingList<FiscoSystem.Models.NcmModels.NcmModel>
+
 
 @{
-    ViewData["Title"] = "ListNcm";
+    ViewData["Title"] = "Index";
 }
 
-<h1>ListNcm</h1>
+<h1>Lista de NCMs</h1>
+
+<form method="get" class="form-inline">
+    <input name="filter" class="form-control" placeholder="filtro" value="@Model.RouteValue["Filter"]"/>
+    <button type="submit" class="btn btn-info">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Procurar
+    </button>
+</form>
+
+Total de NCMs : @Model.TotalRecordCount
+<div>
+    <vc:pager paging-list="@Model"></vc:pager>
+</div>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,22 +26,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CodigoNcm)
+                Codigo NCM
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DescricaoNcm)
+                Descrição NCM
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UnNcm)
+                -
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Usuario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Terminal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Data)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nivel1)
@@ -58,10 +65,7 @@
                 @Html.DisplayFor(modelItem => item.UnNcm)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Terminal)
+                Raphael Ferreira de Moraes
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Data)
