@@ -1,3 +1,4 @@
 # FiscoSystem-Web
-Projeto que visa contribuir para as empresas, ajundando as mesmas a gerir os códigos tributários.![FiscoSystem](https://user-images.githubusercontent.com/51061090/192163427-93a13dd0-6d67-44c8-b9ee-72de28c79e34.png)
+Projeto que visa contribuir para as empresas, ajundando as mesmas a gerir os códigos tributários.
+![image](https://user-images.githubusercontent.com/51061090/205108569-66b1ec0f-1d4e-4580-a4c2-79523d99d688.png)
 
