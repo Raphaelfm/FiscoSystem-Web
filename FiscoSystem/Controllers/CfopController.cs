@@ -1,0 +1,50 @@
+﻿using FiscoSystem.Context;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
+
+namespace FiscoSystem.Controllers
+{
+    public class CfopController : Controller
+    {
+        private readonly AppDbContext _context;
+
+        public CfopController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IActionResult> Index(string filter, int pageindex = 1, string sort = "Cfop")
+        {
+            var resultado = _context.CfopModel.AsNoTracking().AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(filter))
+            {
+                resultado = resultado.Where(n => n.Cfop.Contains(filter));
+            }
+
+            var model = await PagingList.CreateAsync(resultado, 20, pageindex, sort, "Cfop");
+            model.RouteValue = new RouteValueDictionary { { "filter", filter } };
+
+            return View(model);
+        }
+
+        // GET: ContasReceber/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _context.CfopModel == null)
+            {
+                return NotFound();
+            }
+
+            var tabelaFisco = await _context.CfopModel
+                .FirstOrDefaultAsync(m => m.Codigo == id);
+            if (tabelaFisco == null)
+            {
+                return NotFound();
+            }
+
+            return View(tabelaFisco);
+        }
+    }
+}

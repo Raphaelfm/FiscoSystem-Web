@@ -1,53 +1,65 @@
-﻿@model FiscoSystem.Models.NcmModels.TabelaFiscoModel
+﻿@model FiscoSystem.Models.NcmModels.NcmModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Detalhes Tributários</h1>
+<h1>Detalhes NCM</h1>
 
 <div>
-    <h4>Use os dados apresentados em seu ERP</h4>
+    <h4>Detalhes do NCM</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            Grupo: 
+            Codigo do NCM
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Grupo)
+            @Html.DisplayFor(model => model.CodigoNcm)
         </dd>
         <dt class = "col-sm-2">
-            Código NCM: 
+            Descrição do NCM
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ncm)
+            @Html.DisplayFor(model => model.DescricaoNcm)
+        </dd>  
+        <dt class = "col-sm-2">
+            Terminal da Importação
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Terminal)
         </dd>
         <dt class = "col-sm-2">
-            Alíquota: 
+            Data da Importação
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Aliquota)
+            @Html.DisplayFor(model => model.Data)
         </dd>
         <dt class = "col-sm-2">
-            Forma de tributação: 
+            Nível 1
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Forma_Tributacao)
+            @Html.DisplayFor(model => model.Nivel1)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CST)
+            Nível 2
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CST)
+            @Html.DisplayFor(model => model.Nivel2)
         </dd>
         <dt class = "col-sm-2">
-            Pis e Cofins: 
+            Nível 3
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.forma_Pis_Cofins)
+            @Html.DisplayFor(model => model.Nivel3)
+        </dd>
+        <dt class = "col-sm-2">
+            Versão
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Versao)
         </dd>
     </dl>
 </div>
-<div>    
+<div>
     <a asp-action="Index" type="button" class="btn btn-danger">Voltar</a>
 </div>
