@@ -46,13 +46,13 @@ namespace FiscoSystem.Controllers
         // GET: ContasReceber/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.TabelaFiscoModel == null)
+            if (id == null || _context.NcmModel == null)
             {
                 return NotFound();
             }
 
-            var tabelaFisco = await _context.TabelaFiscoModel
-                .FirstOrDefaultAsync(m => m.FiscoId == id);
+            var tabelaFisco = await _context.NcmModel
+                .FirstOrDefaultAsync(m => m.NcmId == id);
             if (tabelaFisco == null)
             {
                 return NotFound();
