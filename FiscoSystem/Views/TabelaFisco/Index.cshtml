@@ -1,0 +1,72 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<FiscoSystem.Models.NcmModels.TabelaFiscoModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tabela Fisco</h1>
+
+<form method="get" class="form-inline">
+    <input name="filter" class="form-control" placeholder="filtro" value="@Model.RouteValue["Filter"]"/>
+    <button type="submit" class="btn btn-info">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Procurar
+    </button>
+</form>
+
+Total de NCMs : @Model.TotalRecordCount
+<div>
+    <vc:pager paging-list="@Model.NumberOfPagesToShow"></vc:pager>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Grupo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ncm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aliquota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Forma_Tributacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CST)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.forma_Pis_Cofins)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grupo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ncm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aliquota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forma_Tributacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CST)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.forma_Pis_Cofins)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.FiscoId" type="button" class="btn btn-info">Detalhes</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

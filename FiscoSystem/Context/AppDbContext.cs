@@ -17,6 +17,7 @@ namespace FiscoSystem.Context
         public DbSet<CfopModel> CfopModel { get; set; }
         public DbSet<PessoaModel> PessoaModel { get; set; }
         public DbSet<TelefoneModel> TelefoneModel { get; set; }
+        public DbSet<TabelaFiscoModel> TabelaFiscoModel { get;set; }
     }
 }
 

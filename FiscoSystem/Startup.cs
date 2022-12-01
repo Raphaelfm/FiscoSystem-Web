@@ -29,8 +29,11 @@ namespace FiscoSystem
 
             services.AddPaging(options =>
             {
-                options.ViewName = "Bootstrap4";
+                options.ViewName = "Bootstrap5";
                 options.PageParameterName= "pageindex";
+                options.SortExpressionParameterName = "sort";
+                options.HtmlIndicatorDown = " <span>&darr;</span>";
+                options.HtmlIndicatorUp = " <span>&uarr;</span>";
             });
         }
 

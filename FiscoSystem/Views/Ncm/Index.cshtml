@@ -7,6 +7,9 @@
 
 <h1>Lista de NCMs</h1>
 
+
+
+
 <form method="get" class="form-inline">
     <input name="filter" class="form-control" placeholder="filtro" value="@Model.RouteValue["Filter"]"/>
     <button type="submit" class="btn btn-info">
@@ -16,12 +19,10 @@
 
 Total de NCMs : @Model.TotalRecordCount
 <div>
-    <vc:pager paging-list="@Model"></vc:pager>
+    <vc:pager paging-list="@Model.NumberOfPagesToShow"></vc:pager>
 </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -33,21 +34,12 @@ Total de NCMs : @Model.TotalRecordCount
             </th>
             <th>
                 -
-            </th>
+            </th>           
             <th>
                 @Html.DisplayNameFor(model => model.Usuario)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nivel1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nivel2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nivel3)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Versao)
+             <th>
+                -
             </th>
             <th></th>
         </tr>
@@ -69,25 +61,15 @@ Total de NCMs : @Model.TotalRecordCount
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Data)
-            </td>
+            </td> 
             <td>
-                @Html.DisplayFor(modelItem => item.Nivel1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nivel2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nivel3)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Versao)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.NcmId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.NcmId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.NcmId">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.NcmId" type="button" class="btn btn-info">Detalhes</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<nav aria-label="Products navigation example">
+    <vc:pager paging-list="@Model.NumberOfPagesToShow" />
+</nav>
