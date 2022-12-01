@@ -3,6 +3,7 @@ using FiscoSystem.Context;
 using FiscoSystem.Repositories;
 using FiscoSystem.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ReflectionIT.Mvc.Paging;
 
 namespace FiscoSystem
 {
@@ -25,6 +26,15 @@ namespace FiscoSystem
             services.AddTransient<INcmRepository, NcmRepository>();
 
             services.AddControllersWithViews();
+
+            services.AddPaging(options =>
+            {
+                options.ViewName = "Bootstrap5";
+                options.PageParameterName= "pageindex";
+                options.SortExpressionParameterName = "sort";
+                options.HtmlIndicatorDown = " <span>&darr;</span>";
+                options.HtmlIndicatorUp = " <span>&uarr;</span>";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,53 @@
+﻿@model FiscoSystem.Models.NcmModels.TabelaFiscoModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes Tributários</h1>
+
+<div>
+    <h4>Use os dados apresentados em seu ERP</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Grupo: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Grupo)
+        </dd>
+        <dt class = "col-sm-2">
+            Código NCM: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ncm)
+        </dd>
+        <dt class = "col-sm-2">
+            Alíquota: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Aliquota)
+        </dd>
+        <dt class = "col-sm-2">
+            Forma de tributação: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Forma_Tributacao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CST)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CST)
+        </dd>
+        <dt class = "col-sm-2">
+            Pis e Cofins: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.forma_Pis_Cofins)
+        </dd>
+    </dl>
+</div>
+<div>    
+    <a asp-action="Index" type="button" class="btn btn-danger">Voltar</a>
+</div>

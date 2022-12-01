@@ -1,0 +1,75 @@
+﻿@model ReflectionIT.Mvc.Paging.PagingList<FiscoSystem.Models.NcmModels.NcmModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de NCMs</h1>
+
+
+
+
+<form method="get" class="form-inline">
+    <input name="filter" class="form-control" placeholder="filtro" value="@Model.RouteValue["Filter"]"/>
+    <button type="submit" class="btn btn-info">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Procurar
+    </button>
+</form>
+
+Total de NCMs : @Model.TotalRecordCount
+<div>
+    <vc:pager paging-list="@Model.NumberOfPagesToShow"></vc:pager>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Codigo NCM
+            </th>
+            <th>
+                Descrição NCM
+            </th>
+            <th>
+                -
+            </th>           
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+             <th>
+                -
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoNcm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoNcm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnNcm)
+            </td>
+            <td>
+                Raphael Ferreira de Moraes
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td> 
+            <td>
+                <a asp-action="Details" asp-route-id="@item.NcmId" type="button" class="btn btn-info">Detalhes</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<nav aria-label="Products navigation example">
+    <vc:pager paging-list="@Model.NumberOfPagesToShow" />
+</nav>
